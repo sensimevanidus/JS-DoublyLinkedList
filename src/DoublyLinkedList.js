@@ -4,7 +4,7 @@
  * @constructor
  * @this {DoublyLinkedList}
  * @author Onur Yaman <onuryaman@gmail.com>
- * @version 0.1
+ * @version 0.2
  */
 function DoublyLinkedList() {
 	// node pointing to the first node of the list
@@ -140,62 +140,8 @@ DoublyLinkedList.prototype.length = function () {
  *
  * @this {DoublyLinkedNode}
  * @param {Object} nodeData The contents of the node that is to be created.
+ * @return {DoublyLinkedNode} The newly created doubly-linked node.
  */
 DoublyLinkedList.prototype.createNode = function (nodeData) {
-	return {
-		// a reference to the previous node
-		previousNode: null,
-		
-		// a reference to the next node
-		nextNode: null,
-		
-		// data or reference to data
-		data: nodeData,
-		
-		/**
-		 * Returns the next node that comes after the current node in the linked list.
-		 *
-		 * @this {DoublyLinkedNode}
-		 * @return {DoublyLinkedNode} Next node of the linked list.
-		 */
-		getNextNode: function () {
-			return this.nextNode;
-		},
-		
-		/**
-		 * Sets the next node that comes after the current node in the linked list.
-		 *
-		 * @this {DoublyLinkedNode}
-		 * @param {DoublyLinkedNode} node The node that is the next node of the current node.
-		 * @return {DoublyLinkedNode} Current node.
-		 */
-		setNextNode: function (node) {
-			this.nextNode = node;
-			
-			return this;
-		},
-		
-		/**
-		 * Returns the previous node that comes before the current node in the linked list.
-		 *
-		 * @this {DoublyLinkedNode}
-		 * @return {DoublyLinkedNode} Previous node of the linked list.
-		 */
-		getPreviousNode: function () {
-			return this.previousNode;
-		},
-		
-		/**
-		 * Sets the previous node that comes before the current node in the linked list.
-		 *
-		 * @this {DoublyLinkedNode}
-		 * @param {DoublyLinkedNode} node The node that is the previous node of the current node.
-		 * @return {DoublyLinkedNode} Current node.
-		 */
-		setPreviousNode: function (node) {
-			this.previousNode = node;
-			
-			return this;
-		}
-	};
+    return new DoublyLinkedNode(nodeData);
 }
