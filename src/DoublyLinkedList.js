@@ -7,14 +7,14 @@
  * @version 0.2
  */
 function DoublyLinkedList() {
-	// node pointing to the first node of the list
-	this.firstNode = null;
-	
-	// node pointing to the last node of the list
-	this.lastNode = null;
-	
-	// node pointing to the current
-	this.currentNode = null;
+    // node pointing to the first node of the list
+    this.firstNode = null;
+    
+    // node pointing to the last node of the list
+    this.lastNode = null;
+    
+    // node pointing to the current
+    this.currentNode = null;
 }
 
 /**
@@ -26,16 +26,16 @@ function DoublyLinkedList() {
  * @return {DoublyLinkedList} The linked list.
  */
 DoublyLinkedList.prototype.insertAfter = function (node, newNode) {
-	newNode.setPreviousNode(node);
-	newNode.setNextNode(node.getNextNode());
-	if (null === node.getNextNode()) {
-		this.lastNode = newNode;
-	} else {
-		node.getNextNode().setPreviousNode(newNode);
-	}
-	node.setNextNode(newNode);
-		
-	return this;
+    newNode.setPreviousNode(node);
+    newNode.setNextNode(node.getNextNode());
+    if (null === node.getNextNode()) {
+        this.lastNode = newNode;
+    } else {
+        node.getNextNode().setPreviousNode(newNode);
+    }
+    node.setNextNode(newNode);
+        
+    return this;
 }
 
 /**
@@ -47,16 +47,16 @@ DoublyLinkedList.prototype.insertAfter = function (node, newNode) {
  * @return {DoublyLinkedList} The linked list.
  */
 DoublyLinkedList.prototype.insertBefore = function (node, newNode) {
-	newNode.setPreviousNode(node.getPreviousNode());
-	newNode.setNextNode(node);
-	if (null === node.getPreviousNode()) {
-		this.firstNode = newNode;
-	} else {
-		node.getPreviousNode().setNextNode(newNode);
-	}
-	node.setPreviousNode(newNode);
-	
-	return this;
+    newNode.setPreviousNode(node.getPreviousNode());
+    newNode.setNextNode(node);
+    if (null === node.getPreviousNode()) {
+        this.firstNode = newNode;
+    } else {
+        node.getPreviousNode().setNextNode(newNode);
+    }
+    node.setPreviousNode(newNode);
+    
+    return this;
 }
 
 /**
@@ -67,16 +67,16 @@ DoublyLinkedList.prototype.insertBefore = function (node, newNode) {
  * @return {DoublyLinkedList} The linked list.
  */
 DoublyLinkedList.prototype.prepend = function (newNode) {
-	if (null === this.firstNode) {
-		this.firstNode = newNode;
-		this.lastNode = newNode;
-		newNode.setPreviousNode(null);
-		newNode.setNextNode(null);
-	} else {
-		this.insertBefore(this.firstNode, newNode);
-	}
-	
-	return this;
+    if (null === this.firstNode) {
+        this.firstNode = newNode;
+        this.lastNode = newNode;
+        newNode.setPreviousNode(null);
+        newNode.setNextNode(null);
+    } else {
+        this.insertBefore(this.firstNode, newNode);
+    }
+    
+    return this;
 }
 
 /**
@@ -87,13 +87,13 @@ DoublyLinkedList.prototype.prepend = function (newNode) {
  * @return {DoublyLinkedList} The linked list.
  */
 DoublyLinkedList.prototype.append = function (newNode) {
-	if (null === this.lastNode) {
-		this.prepend(newNode);
-	} else {
-		this.insertAfter(this.lastNode, newNode);
-	}
-	
-	return this;
+    if (null === this.lastNode) {
+        this.prepend(newNode);
+    } else {
+        this.insertAfter(this.lastNode, newNode);
+    }
+    
+    return this;
 }
 
 /**
@@ -104,19 +104,19 @@ DoublyLinkedList.prototype.append = function (newNode) {
  * @return {DoublyLinkedList} The linked list.
  */
 DoublyLinkedList.prototype.remove = function (node) {
-	if (null === node.getPreviousNode()) {
-		this.firstNode = node.getNextNode();
-	} else {
-		node.getPreviousNode().setNextNode(node.getNextNode());
-	}
-	if (null === node.getNextNode()) {
-		this.lastNode = node.getPreviousNode();
-	} else {
-		node.getNextNode.setPreviousNode(node.getPreviousNode());
-	}
-	node = null;
-	
-	return this;
+    if (null === node.getPreviousNode()) {
+        this.firstNode = node.getNextNode();
+    } else {
+        node.getPreviousNode().setNextNode(node.getNextNode());
+    }
+    if (null === node.getNextNode()) {
+        this.lastNode = node.getPreviousNode();
+    } else {
+        node.getNextNode().setPreviousNode(node.getPreviousNode());
+    }
+    node = null;
+    
+    return this;
 }
 
 /**
@@ -126,13 +126,13 @@ DoublyLinkedList.prototype.remove = function (node) {
  * @return {int} Number of nodes found in the linked list.
  */
 DoublyLinkedList.prototype.length = function () {
-	var length = 0;
-	var node = this.firstNode;
-	while (null !== node) {
-		length++;
-		node = node.getNextNode();
-	}
-	return length;
+    var length = 0;
+    var node = this.firstNode;
+    while (null !== node) {
+        length++;
+        node = node.getNextNode();
+    }
+    return length;
 }
 
 /**
