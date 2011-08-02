@@ -8,13 +8,13 @@
  */
 function DoublyLinkedNode (nodeData) {
     // a reference to the previous node
-    previousNode = null;
+    this.previousNode = null;
     
     // a reference to the next node
-    nextNode = null;
+    this.nextNode = null;
     
     // data or reference to data
-    data = nodeData;
+    this.data = nodeData;
 }
 
 /**
